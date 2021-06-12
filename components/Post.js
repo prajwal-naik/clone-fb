@@ -6,6 +6,7 @@ import{
 } from "@heroicons/react/outline";
 
 function Post({ name, message, postImage, image, timestamp }){
+    // console.log(timestamp?.toDate().toLocaleDateString());
     return(
         <div className = "flex flex-col">
             <div className = "p-5 bg-white mt-5 rounded-t-2xl shadow-sm">
@@ -19,7 +20,7 @@ function Post({ name, message, postImage, image, timestamp }){
                     <div>
                         <p className = "font-medium">{name}</p>
                         <p className = "text-xs text-gray-400">
-                            {new Date(timestamp?.toDate()).toLocaleDateString()}
+                            {new Date(timestamp?.toDate()).toLocaleString()}
                         </p>
                     </div>
                 </div>

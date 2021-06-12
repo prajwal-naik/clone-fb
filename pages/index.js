@@ -5,8 +5,11 @@ import Login from "../components/Login";
 import Sidebar from "../components/Sidebar"
 import Feed from "../components/Feed";
 import Widgets from "../components/Widgets";
+import { db } from "../firebase";
+import { parseBody } from "next/dist/next-server/server/api-utils";
 
-export default function Home({ session }) {
+
+export default function Home({ session, posts }) {
 	if(!session) return <Login/>;
 
 	return (
@@ -21,7 +24,7 @@ export default function Home({ session }) {
 				{/* Sidebar */}
 				<Sidebar/>
 				{/* Feed */}
-				<Feed />
+				<Feed posts = { posts }/>
 				{/* Widgets */}
 				<Widgets />
 			</main>
@@ -36,10 +39,18 @@ export default function Home({ session }) {
 export async function getServerSideProps(context){
 	//get the user
 	const session = await getSession(context);
+	const posts = await db.collection("posts").orderBy("timestamp", "desc").get();
+
+	const docs = posts.docs.map((post) => ({
+		id: post.id,
+		...post.data(),
+		timestamp: null,
+	}));
 
 	return {
 		props:{
-			session
+			session,
+			posts: docs
 		}
 	}
 }
