@@ -34,7 +34,7 @@ function Header(){
                 <div className = "md:inline-flex ml-2 items-center rounded-full bg-gray-100 p-2">
                     <SearchIcon className = "h-6 text-gray-600"/>
                     <input 
-                        className = "hidden md:inline-flex flex ml-2 items-center bg-transparent outline-none flex-shrink placeholder-gray-500 flex-shrink" 
+                        className = "hidden lg:inline-flex flex ml-2 items-center bg-transparent outline-none flex-shrink placeholder-gray-500 flex-shrink" 
                         type = "text" 
                         placeholder = "Search Facebook"
                     />
@@ -43,7 +43,7 @@ function Header(){
 
             {/* Center */}
             <div className = "flex justify-center flex-grow">
-                <div className = "flex space-x-6 md:space-x-2">
+                <div className = "flex space-x-12 md:space-x-2">
                     <HeaderIcon active Icon = {HomeIcon}/>
                     <HeaderIcon Icon = {FlagIcon}/>
                     <HeaderIcon Icon = {PlayIcon}/>
@@ -53,7 +53,7 @@ function Header(){
             </div>
 
             {/* Right */}
-            <div className = "flex items-center sm:spacing-x-2 justify-end">
+            <div className = "flex items-center md:space-x-2 justify-end">
                 {/* Profile Pic */}
                 <Image
                     onClick = {signOut}
@@ -63,7 +63,7 @@ function Header(){
                     height = "40"
                     layout = "fixed"
                 />
-                <p className = "whitespace-nowrap font-semibold pr-3">
+                <p className = "hidden lg:inline-flex whitespace-nowrap font-semibold pr-3">
                      {session.user.name}
                 </p>
                 <ViewGridIcon className = "icon" />
@@ -71,8 +71,6 @@ function Header(){
                 <BellIcon className = "icon" />
                 <ChevronDownIcon className = "icon" />
             </div>
-
-
         </div>
     );
 }
