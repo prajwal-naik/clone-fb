@@ -2,11 +2,6 @@ import StoryCard from "./StoryCard";
 
 const stories = [
     {
-        name : "Praji Naik",
-        src : "https://links.papreact/com/l4v",
-        profile : "https://links.papreact.com/l4v",
-    },
-    {
         name: "Elong Mast",
         src: "https://links.papareact.com/4zn",
         profile: "https://links.papareact.com/kxk",
@@ -20,16 +15,16 @@ const stories = [
         name: "Bill Hates",
         src: "https://links.papareact.com/4u4",
         profile: "https://links.papareact.com/zvy"
-    }
+    },
 ];
 
 function Stories(){
     return( 
         <div className = "flex justify-center space-x-3 mx-auto">
-            {/* <h1> TEST </h1> */}
-            {stories.map(story => {
+            <h1> TEST </h1>
+            {stories.map((story) => {
                 <StoryCard  
-                    key = {story.key} 
+                    key = {story.src} 
                     name = {story.name} 
                     src = {story.src}
                     profile = {story.profile}
